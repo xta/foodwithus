@@ -7,6 +7,8 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
+gem 'omniauth-foursquare'
+gem 'foursquare2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -14,10 +16,27 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
+  gem 'uglifier', '>= 1.0.3'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
+  gem 'rb-fsevent', '~> 0.9.1'
+
+  gem 'factory_girl_rails'
+  gem 'faker'
+
+end
+
+group :test do
+  gem 'webmock', '~> 1.8.0'
+  gem 'vcr'
 end
 
 gem 'jquery-rails'
