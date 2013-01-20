@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "http://198.74.57.147/", :web, :app, :db, primary: true
+server "198.74.57.147", :web, :app, :db, primary: true
 
 set :application, "foodwithus"
 set :user, "deployer"
