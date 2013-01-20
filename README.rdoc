@@ -2,4 +2,4 @@
 
 4sq social restaurant recommendation
 
-[FoodWith.Us](http://foodwith.us/)
+http://FoodWith.Us/
