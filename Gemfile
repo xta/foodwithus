@@ -35,6 +35,7 @@ group :assets do
 end
 
 group :test do
+  gem 'rspec-rails-mocha'
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
 end
