@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SessionsController do
 
-  describe '#new' do
+  describe '.new' do
     
     before :each do 
       get :new
@@ -12,7 +12,7 @@ describe SessionsController do
   end
 
 
-  describe '#create' do
+  describe '.create' do
 
     before :each do
       @user = FactoryGirl.create(:user)
@@ -35,7 +35,7 @@ describe SessionsController do
   end
 
 
-  describe '#destroy' do
+  describe '.destroy' do
 
     before :each do
       session[:user_id] = 1
@@ -49,7 +49,7 @@ describe SessionsController do
   end
 
 
-  describe '#failure' do
+  describe '.failure' do
     before :each do
       get :failure
     end
