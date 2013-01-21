@@ -4,9 +4,20 @@ describe SessionsController do
 
   describe '#create' do
 
-    it 'sets the current user if valid'
+    xit 'sets the current user if valid' do
 
-    it 'does not set the current user if not valid login'
+      # mock that valid
+        # user = FactoryGirl.build(:user)
+      # post :create
+      # should redirect to root
+    end
+
+    xit 'does not set the current user if not valid login' do
+
+      # mock that invalid
+      # post :create
+      # should redirect to root with notice
+    end
 
   end
 
