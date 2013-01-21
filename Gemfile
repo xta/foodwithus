@@ -35,7 +35,7 @@ group :assets do
 end
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'rspec-rails-mocha'
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
