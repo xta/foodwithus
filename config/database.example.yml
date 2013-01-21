@@ -17,6 +17,7 @@ development:
   encoding: unicode
   database: foodwithus_development
   pool: 5
+  host: localhost
   username: foodwithus
   password:
 
@@ -43,6 +44,7 @@ test:
   encoding: unicode
   database: foodwithus_test
   pool: 5
+  host: localhost
   username: foodwithus
   password:
 
@@ -51,5 +53,6 @@ production:
   encoding: unicode
   database: foodwithus_production
   pool: 5
+  host: localhost  
   username: foodwithus
   password:
