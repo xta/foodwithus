@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-describe Group do
+# describe Group do
 
-#
-
-end
+# end
