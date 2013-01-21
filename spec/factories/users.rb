@@ -3,9 +3,9 @@
 FactoryGirl.define do
   factory :user do
     uid 1
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
-    token "MyString"
+    first_name "John"
+    last_name "Football"
+    email "john@football.com"
+    token "foursquaretoken"
   end
 end

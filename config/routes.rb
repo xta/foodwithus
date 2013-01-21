@@ -1,6 +1,11 @@
 Foodwithus::Application.routes.draw do
   resources :groups
 
+  get '/login', :to => 'sessions#new', :as => 'login'
+  get '/logout', :to => 'sessions#destroy', :as => 'logout'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
