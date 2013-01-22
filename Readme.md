@@ -6,4 +6,5 @@
 
 # Setup
 
-* create a config/database.yml (based on database.example.yml file)
+* create a `/config/database.yml` for postgresql setup
+* create a `/config/initializers/omniauth.rb` with 4sq API keys

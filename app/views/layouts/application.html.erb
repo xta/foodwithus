@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if current_user %>
+  <%= current_user.first_name %>
+<% else %>
+  <%= link_to "Sign in with Foursquare", login_path %>
+<% end %>
+
 <%= yield %>
 
 <script type="text/javascript">
