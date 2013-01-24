@@ -2,8 +2,8 @@ class FoursquareWrapper
 
   attr_accessor :client
 
-  def initialize(token)
-    @client = Foursquare2::Client.new(:oauth_token => token)
+  def initialize(user)
+    @client = Foursquare2::Client.new(:oauth_token => user.token)
   end
 
   def user_friends
