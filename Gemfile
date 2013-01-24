@@ -36,7 +36,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails-mocha'
+  gem 'rspec-rails-mocha', :require => false
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
 end
