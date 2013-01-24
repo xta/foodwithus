@@ -15,6 +15,10 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+if ENV["RAILS_ENV"] == "test"
+  ENV.update YAML.load(File.read(File.expand_path('../test_settings.yml', __FILE__)))
+end
+
 module Foodwithus
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
