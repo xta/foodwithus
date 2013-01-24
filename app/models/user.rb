@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 
   has_many :friends
 
+  validates :uid, :presence => true
+  validates :token, :presence => true
+  validates :email, :presence => true
+
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
