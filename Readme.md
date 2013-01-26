@@ -13,3 +13,7 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
 * create a `/config/database.yml` for postgresql setup
 * create a `/config/initializers/omniauth.rb` with Foursquare API keys
 * create a `/config/test_settings.yml` with a sample user's Foursquare token
+
+# Etc
+
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/xta/foodwithus) 
