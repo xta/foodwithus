@@ -40,7 +40,7 @@
   padding: 20px 20px;
 }
 
-.clearfix: after {
+.clearfix:after {
   clear: both;
   content: ".";
   display: block;
