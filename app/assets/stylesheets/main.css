@@ -1,0 +1,42 @@
+body {
+  background: url(bg-sushi.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html body {
+  background-color: transparent;
+}
+
+#welcome {
+  margin-top: 100px;
+}
+
+#welcome, #welcome a {
+  color: #222;
+  text-align: center;
+}
+
+#welcome header a {
+  text-decoration: none;
+  font-size: 300%;
+}
+
+#welcome #tagline {
+  font-size: 140%;
+  padding: 0 30px;
+}
+
+#welcome #login {
+  color: #fff;
+  background-color: rgb(0, 160, 210);
+  width: 300px;
+  padding: 20px 10px;
+  margin: 30px auto;
+}
+
+#welcome #login a {
+  color: #fff;
+}
