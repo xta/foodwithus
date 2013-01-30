@@ -2,12 +2,9 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    current_user ? @groups = current_user.groups : false
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @groups }
-    end
+    respond_to :html
   end
 
   # # GET /groups/1
