@@ -2,8 +2,10 @@ class Friend < ActiveRecord::Base
   # attr_accessible :email, :first_name, :homecity, :last_name, :photo_prefix, :photo_suffix, :relationship, :uid, :user_id
 
   belongs_to :user
+  belongs_to :group
 
   validates :uid, :presence => true
+  validates_associated :user
 
   def self.build_foursquare_friend(the_user_id, foursquare_api_friend)
 

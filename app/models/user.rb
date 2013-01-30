@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :friends
+  has_many :groups
 
   validates :uid, :presence => true
   validates :token, :presence => true
