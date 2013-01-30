@@ -12,6 +12,25 @@ class User < ActiveRecord::Base
 
   def self.new_user_onboard(auth)
     new_user = create_from_omniauth(auth)
+
+    if new_user
+      client = FoursquareWrapper.new(new_user)
+      friends = client.user_friends
+
+      if friends
+        friends.each do |friend|
+          begin
+            new_friend = Friend.build_foursquare_friend(new_user.id, friend)
+            new_friend.save
+          rescue Exception => e
+            logger.debug e
+          end
+        end
+      end
+
+    end
+
+    return new_user
   end
 
   private

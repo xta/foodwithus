@@ -12,7 +12,7 @@ describe User do
                           :location => "New York"
                   },
         :credentials => {
-                          :token => "tokengoeshere"
+                          :token => ENV['FOURSQUARE_TEST_TOKEN']
                   }
       })
     end
@@ -39,7 +39,9 @@ describe User do
     it 'triggers create_from_omniauth if user does not exist' do
 
       lambda do
-        User.from_omniauth(auth)
+        VCR.use_cassette('from_omniauth_should_create_new_user') do
+          User.from_omniauth(auth)
+        end
       end.should change(User, :count).by(1)
 
     end
@@ -48,9 +50,19 @@ describe User do
 
   describe ".new_user_onboard" do
 
-    it "creates friends for the new_user"
+    it "creates friends for the new_user" do
 
-    it "does not create friends for an invalid user"
+      VCR.use_cassette('new_user_onboard_friends') do
+        new_user = User.new_user_onboard(auth)
+        new_user.friends.count.should == 2
+      end
+
+    end
+
+    it "does not create a user with invalid data given" do
+        new_user = User.new_user_onboard(bad_auth)
+        new_user.should == false
+    end
 
   end
 
