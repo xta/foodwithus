@@ -7,27 +7,33 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
 
   def self.from_omniauth(auth)
-    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+    where(auth.slice("provider", "uid")).first || new_user_onboard(auth)
   end
 
-  def self.create_from_omniauth(auth)
+  def self.new_user_onboard(auth)
+    new_user = create_from_omniauth(auth)
+  end
 
-    begin
-      user = self.new
+  private
 
-      user.provider    = auth["provider"]
-      user.uid         = auth["uid"]
-      user.first_name  = auth["info"]["first_name"]
-      user.last_name   = auth["info"]["last_name"]
-      user.token       = auth["credentials"]["token"]
-      user.email       = auth["info"]["email"]
-      user.location    = auth["info"]["location"]
+    def self.create_from_omniauth(auth)
 
-      user.tap { user.save }
-    rescue
-      return false
+      begin
+        user = self.new
+
+        user.provider    = auth["provider"]
+        user.uid         = auth["uid"]
+        user.first_name  = auth["info"]["first_name"]
+        user.last_name   = auth["info"]["last_name"]
+        user.token       = auth["credentials"]["token"]
+        user.email       = auth["info"]["email"]
+        user.location    = auth["info"]["location"]
+
+        user.tap { user.save }
+      rescue
+        return false
+      end
+
     end
-
-  end
 
 end

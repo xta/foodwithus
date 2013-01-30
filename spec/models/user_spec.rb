@@ -46,6 +46,14 @@ describe User do
 
   end
 
+  describe ".new_user_onboard" do
+
+    it "creates friends for the new_user"
+
+    it "does not create friends for an invalid user"
+
+  end
+
   describe ".create_from_omniauth" do
 
     it "creates a user from foursquare response" do
