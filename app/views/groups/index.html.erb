@@ -21,3 +21,15 @@
 <br />
 
 <%= link_to 'New Group', new_group_path %>
+
+<h1>Friends</h1>
+
+<% if current_user %>
+
+  <% current_user.friends.each do |friend| %>
+
+    <%= friend.first_name %> <%= friend.last_name %><br/>
+
+  <% end %>
+
+<% end %>
