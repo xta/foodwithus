@@ -7,7 +7,8 @@ class FoursquareWrapper
   end
 
   def user_friends
-    r = @client.user_friends("self", :limit => 500).items
+    returned_friends = @client.user_friends("self", :limit => 500).items 
+    returned_friends.empty? ? false : returned_friends
   end
 
 end

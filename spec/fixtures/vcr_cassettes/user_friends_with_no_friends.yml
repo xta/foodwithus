@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/self/friends?limit=500&oauth_token=N2YCMBKKXCXQ2S4XSJ2ZPAVL3TAW1TFNNPGEJCRLU2V3JPH0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAzMCBKYW4gMjAxMyAxOToyMDoxOCBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCAzMCBKYW4gMjAxMyAxOToyMDoxOCBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        MTc=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDk3
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MjA2
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA02PsW7DMAxEf4XgbMRGR21FunQL0GxxBjWiUQKOJFC0CsPQ
+        v5euO3QkjvfubsMnqUe34SMFQvcyDB2SSJLrmu3GQFno4ZUC/glvZuDZpMtM
+        vhBkSZUDgY/wenmHSlI4RdAEviYOMC26CMEvtJw+iOBLNbuxH/tP1tO8jn1d
+        v8++YuswJuWJLc8QBd1tQz16/Beu4ldrw0rPvfkShXw4pyUquqG1e4dCJRvA
+        Bmw4CVMMBts3Hj+Hd+ffW2s/jmeatwQBAAA=
+    http_version: 
+  recorded_at: Wed, 30 Jan 2013 19:20:19 GMT
+recorded_with: VCR 2.4.0

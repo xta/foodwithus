@@ -1,1 +1,2 @@
 FOURSQUARE_TEST_TOKEN: 'token_goes_here'
+FOURSQUARE_TEST_TOKEN_BLANK_USER: 'user_with_no_checkins_or_friends_token_goes_here'
