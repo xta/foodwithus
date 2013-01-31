@@ -47,4 +47,5 @@ VCR.configure do |c|
   c.hook_into :webmock
   # c.default_cassette_options = { :record => :new_episodes, :erb => true }
   c.filter_sensitive_data("<TEST_TOKEN>") { ENV['FOURSQUARE_TEST_TOKEN'] }
+  c.filter_sensitive_data("<TEST_TOKEN>") { ENV['FOURSQUARE_TEST_TOKEN_BLANK_USER'] }
 end
