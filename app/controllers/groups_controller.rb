@@ -7,48 +7,40 @@ class GroupsController < ApplicationController
     respond_to :html
   end
 
-  # # GET /groups/1
-  # # GET /groups/1.json
-  # def show
-  #   @group = Group.find(params[:id])
+  # GET /groups/1
+  # GET /groups/1.json
+  def show
+    @group = Group.find(params[:id])
 
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @group }
-  #   end
-  # end
+    respond_to :html
+  end
 
-  # # GET /groups/new
-  # # GET /groups/new.json
-  # def new
-  #   @group = Group.new
+  # GET /groups/new
+  # GET /groups/new.json
+  def new
+    @group = current_user.groups.build
 
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @group }
-  #   end
-  # end
+    respond_to :html
+  end
 
-  # # GET /groups/1/edit
-  # def edit
-  #   @group = Group.find(params[:id])
-  # end
+  # GET /groups/1/edit
+  def edit
+    @group = Group.find(params[:id])
+  end
 
-  # # POST /groups
-  # # POST /groups.json
-  # def create
-  #   @group = Group.new(params[:group])
+  # POST /groups
+  # POST /groups.json
+  def create
+    @group = current_user.groups.build(:name => params[:group][:name])
+    @group.set_members(params[:member])
 
-  #   respond_to do |format|
-  #     if @group.save
-  #       format.html { redirect_to @group, notice: 'Group was successfully created.' }
-  #       format.json { render json: @group, status: :created, location: @group }
-  #     else
-  #       format.html { render action: "new" }
-  #       format.json { render json: @group.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    if @group.save
+      render 'index'
+    else
+      render 'new'
+    end
+
+  end
 
   # # PUT /groups/1
   # # PUT /groups/1.json

@@ -12,10 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+
+  <% current_user.friends.each do |friend| %>
+    <input type="checkbox" name="member[]" value="<%= friend.id %>"/>
+    <%= friend.first_name %> <%= friend.last_name %><br/>
+  <% end %>
+
+  <input type="hidden" />
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
