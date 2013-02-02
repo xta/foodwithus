@@ -22,6 +22,7 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
 
 # Testing
 * create a `/config/test_settings.yml` with a sample user's Foursquare token
+
     bundle exec guard
 
 # Etc
