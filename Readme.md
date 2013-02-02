@@ -26,7 +26,7 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
 * create a `/config/test_settings.yml` with a sample user's Foursquare token
         rake db:test:prepare
         bundle exec guard
-
+        
 # Etc
 
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/xta/foodwithus) 
