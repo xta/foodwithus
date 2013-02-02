@@ -8,11 +8,21 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
 
 [foodwith.us](http://foodwith.us/)
 
-# Rails Localhost Setup
-
+# Setup
+    git clone git@github.com:xta/foodwithus.git
+    cd foodwithus
+    bundle
 * create a `/config/database.yml` for postgresql setup
 * create a `/config/initializers/omniauth.rb` with Foursquare API keys
+
+# Start localhost
+    redis-server /usr/local/etc/redis.conf
+    bundle exec sidekiq
+    rails s
+
+# Testing
 * create a `/config/test_settings.yml` with a sample user's Foursquare token
+    bundle exec guard
 
 # Etc
 
