@@ -51,12 +51,10 @@ describe User do
   describe ".new_user_onboard" do
 
     it "creates friends for the new_user" do
-
       VCR.use_cassette('new_user_onboard_friends') do
         new_user = User.new_user_onboard(auth)
         new_user.friends.count.should == 2
       end
-
     end
 
     it "does not create a user with invalid data given" do
