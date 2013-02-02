@@ -20,7 +20,7 @@ describe FoursquareWrapper do
     end
 
     it 'returns false if user has not friends' do
-      VCR.use_cassette('user_friends_with_no_friends') do
+      VCR.use_cassette('user_friends_with_no_friends', :match_requests_on => [:method]) do
         friends = @blank_client.user_friends
         friends.should == false
       end
