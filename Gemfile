@@ -30,7 +30,6 @@ group :assets do
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent', '~> 0.9.1'
-  gem 'factory_girl_rails'
   gem 'faker'
 
 end
