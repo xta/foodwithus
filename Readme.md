@@ -14,6 +14,8 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
     bundle
 * create a `/config/database.yml` for postgresql setup
 * create a `/config/initializers/omniauth.rb` with Foursquare API keys
+        rake db:create
+        rake db:migrate
 
 # Start localhost
     redis-server /usr/local/etc/redis.conf
@@ -22,7 +24,8 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
 
 # Testing
 * create a `/config/test_settings.yml` with a sample user's Foursquare token
-    bundle exec guard
+        rake db:test:prepare
+        bundle exec guard
 
 # Etc
 
