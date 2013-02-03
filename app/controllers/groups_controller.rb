@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
     @group.set_members(params[:member])
 
     if @group.save
-      render 'index'
+      redirect_to @group
     else
       render 'new'
     end
