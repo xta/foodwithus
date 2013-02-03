@@ -15,4 +15,8 @@ class FoursquareWrapper
     @client.venuestats(foursquare_user.uid)
   end
 
+  def venue_categories
+    @client.venue_categories
+  end
+
 end

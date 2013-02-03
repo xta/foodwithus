@@ -40,6 +40,17 @@ describe FoursquareWrapper do
 
   end
 
+  describe '.venue_categories' do
+
+    it 'gets the list of all categories from foursquare' do
+      VCR.use_cassette('venue_categories_list') do
+        categories = @client.venue_categories
+        categories.size.should == 9
+      end
+    end
+
+  end
+
   describe '.search_nearby_restaurants'
 
 end
