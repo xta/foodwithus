@@ -6,7 +6,6 @@ require 'rspec/autorun'
 require 'rspec/rails/mocha'
 require 'webmock/rspec'
 require 'vcr'
-require 'database_cleaner'
 require 'sidekiq/testing/inline'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -42,19 +41,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  # db cleaner via https://github.com/bmabey/database_cleaner
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
 
 end
 

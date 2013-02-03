@@ -39,7 +39,6 @@ group :test do
   gem 'rspec-rails-mocha', :require => false
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
-  gem 'database_cleaner'
 end
 
 # deploy
