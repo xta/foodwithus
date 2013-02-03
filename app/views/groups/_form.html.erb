@@ -17,8 +17,10 @@
   </div>
 
   <% current_user.friends.each do |friend| %>
-    <input type="checkbox" name="member[]" value="<%= friend.id %>" <% if @group.friends.include?(friend) %>checked<% end %> />
-    <%= friend.first_name %> <%= friend.last_name %><br/>
+    <div class="group_member">
+      <input type="checkbox" name="member[]" value="<%= friend.id %>" <% if @group.friends.include?(friend) %>checked<% end %> />
+      <%= friend.first_name %> <%= friend.last_name %>
+    </div>
   <% end %>
 
   <input type="hidden" />
