@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @group.name %>
+  <h3><%= @group.name %></h3>
 </p>
+
+<% unless @group.friends.empty? %>
+  <h4>Members</h4>
+
+  <% @group.friends.each do |friend| %>
+    <%= friend.first_name %> <%= friend.last_name %><br/>
+  <% end %>
+  
+  <br/>  
+<% end %>
 
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

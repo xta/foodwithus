@@ -42,31 +42,25 @@ class GroupsController < ApplicationController
 
   end
 
-  # # PUT /groups/1
-  # # PUT /groups/1.json
-  # def update
-  #   @group = Group.find(params[:id])
+  # PUT /groups/1
+  # PUT /groups/1.json
+  def update
+    @group = Group.find(params[:id])
+    @group.set_members(params[:member])
 
-  #   respond_to do |format|
-  #     if @group.update_attributes(params[:group])
-  #       format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @group.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    if @group.save
+      redirect_to @group
+    else
+      render 'edit'
+    end
+  end
 
-  # # DELETE /groups/1
-  # # DELETE /groups/1.json
-  # def destroy
-  #   @group = Group.find(params[:id])
-  #   @group.destroy
+  # DELETE /groups/1
+  # DELETE /groups/1.json
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
 
-  #   respond_to do |format|
-  #     format.html { redirect_to groups_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    redirect_to groups_path
+  end
 end
