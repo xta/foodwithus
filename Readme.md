@@ -12,9 +12,8 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
     git clone git@github.com:xta/foodwithus.git
     cd foodwithus
     bundle
-* create a `/config/database.yml` for postgresql setup
-* create a `/config/initializers/omniauth.rb` with Foursquare API keys
-
+create a `/config/database.yml` for postgresql setup
+create a `/config/initializers/omniauth.rb` with Foursquare API keys
 
     rake db:create
     rake db:migrate
@@ -25,7 +24,7 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
     rails s
 
 # Testing
-* create a `/config/test_settings.yml` with a sample user's Foursquare token
+create a `/config/test_settings.yml` with a sample user's Foursquare token
 
 
     rake db:test:prepare
