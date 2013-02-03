@@ -1,3 +1,4 @@
+<div class="group_form">
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
@@ -18,8 +19,8 @@
 
   <% current_user.friends.each do |friend| %>
     <div class="group_member">
-      <input type="checkbox" name="member[]" value="<%= friend.id %>" <% if @group.friends.include?(friend) %>checked<% end %> />
-      <%= friend.first_name %> <%= friend.last_name %>
+      <input type="checkbox" name="member[]" value="<%= friend.id %>" id="<%= friend.id %>" <% if @group.friends.include?(friend) %>checked<% end %> />
+      <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
     </div>
   <% end %>
 
@@ -30,3 +31,4 @@
   </div>
 
 <% end %>
+</div>

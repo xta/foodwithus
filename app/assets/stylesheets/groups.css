@@ -1,0 +1,12 @@
+.group_form input[type="checkbox"]
+{
+    display:none;
+}
+
+.group_form input[type=checkbox] + label {
+  background-color: #eee;
+}
+
+.group_form input[type=checkbox]:checked + label {
+  background-color: green;
+}
