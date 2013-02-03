@@ -13,6 +13,7 @@ Created at the [2013 Foursquare Hackathon](https://www.hackerleague.org/hackatho
     cd foodwithus
     bundle
 create a `/config/database.yml` for postgresql setup
+
 create a `/config/initializers/omniauth.rb` with Foursquare API keys
 
     rake db:create
@@ -25,7 +26,6 @@ create a `/config/initializers/omniauth.rb` with Foursquare API keys
 
 # Testing
 create a `/config/test_settings.yml` with a sample user's Foursquare token
-
 
     rake db:test:prepare
     bundle exec guard
