@@ -9,21 +9,15 @@ describe Group do
   end
 
   describe '.members' do
-
-    it 'returns an array of user friends friend_ids' do
-      friend1 = user.friends.create(:uid => 11)
-      friend2 = user.friends.create(:uid => 22)
-      friend_ids = user.friends.collect {|friend| friend.id}
-
-      @group.members.should == friend_ids
+    before(:each) do
+      friend1 = user.friends.create(:uid => 1)
+      friend2 = user.friends.create(:uid => 2)
+      @group.friends.push(friend1).push(friend2)
     end
 
-    it 'should return no results if user has no friends' do
-      friend_ids = user.friends.collect {|friend| friend.id}
-
-      @group.members.should == []
+    it 'returns an array of the members in group' do
+      @group.members.size.should == 3
     end
-
   end
 
   describe '.set_members' do

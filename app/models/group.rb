@@ -5,8 +5,12 @@ class Group < ActiveRecord::Base
   belongs_to :user
   has_many :friends
 
+  validates :name, :presence => true
+  validates_associated :user
+
   def members
-    user.friends.collect {|friend| friend.id}
+    group_members = []
+    group_members.tap { group_members.concat( friends ).push( self.user ) }
   end
 
   def set_members(friend_id_collection)
