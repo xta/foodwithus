@@ -11,4 +11,8 @@ class FoursquareWrapper
     returned_friends.empty? ? false : returned_friends
   end
 
+  def venuestats(foursquare_user)
+    @client.venuestats(foursquare_user.uid)
+  end
+
 end

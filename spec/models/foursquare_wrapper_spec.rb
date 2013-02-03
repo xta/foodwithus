@@ -3,8 +3,8 @@ require 'spec_helper'
 describe FoursquareWrapper do
 
   before(:each) do
-    user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'])
-    @client = FoursquareWrapper.new(user)
+    @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
+    @client = FoursquareWrapper.new(@user)
 
     blank_user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN_BLANK_USER'])
     @blank_client = FoursquareWrapper.new(blank_user)
@@ -28,7 +28,17 @@ describe FoursquareWrapper do
 
   end
 
-  describe '.user_venuestats'
+  describe '.user_venuestats' do
+
+    it 'returns venuestats for given person with uid attribute' do
+      VCR.use_cassette('user_venuestats_self') do
+        venuestats = @client.venuestats(@user)
+        venuestats.venues.size.should == 5
+        venuestats.categories.size.should == 10
+      end
+    end
+
+  end
 
   describe '.search_nearby_restaurants'
 
