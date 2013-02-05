@@ -19,7 +19,13 @@
 
   <% current_user.friends.each do |friend| %>
     <div class="group_member">
-      <input type="checkbox" name="member[]" value="<%= friend.id %>" id="<%= friend.id %>" <% if @group.friends.include?(friend) %>checked<% end %> />
+      <input type="checkbox" name="member[]" value="<%= friend.id %>" id="<%= friend.id %>" 
+      <% unless @group.friends.empty? %>
+        <% if @group.friends.include?(friend) %>
+        checked
+        <% end %> 
+      <% end %> 
+      />
       <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
     </div>
   <% end %>

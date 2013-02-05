@@ -2,7 +2,9 @@ class Friend < ActiveRecord::Base
   attr_accessible :uid
 
   belongs_to :user
-  belongs_to :group
+
+  has_many :groups_friends
+  has_many :groups, :through => :groups_friends
 
   validates :uid, :presence => true
   validates_associated :user

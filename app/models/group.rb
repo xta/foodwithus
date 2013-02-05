@@ -5,6 +5,9 @@ class Group < ActiveRecord::Base
   belongs_to :user
   has_many :friends
 
+  has_many :groups_friends
+  has_many :friends, :through => :groups_friends
+
   validates :name, :presence => true
   validates_associated :user
 

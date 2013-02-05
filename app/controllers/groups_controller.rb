@@ -46,6 +46,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1.json
   def update
     @group = Group.find(params[:id])
+    @group.name = params[:group][:name]
     @group.set_members(params[:member])
 
     if @group.save
