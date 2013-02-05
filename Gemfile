@@ -10,6 +10,9 @@ gem 'pg'
 # workers
 gem 'sidekiq'
 
+# lib task
+gem 'httparty'
+
 # foursquare
 gem 'omniauth-foursquare'
 gem 'foursquare2'
