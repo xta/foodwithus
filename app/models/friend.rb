@@ -6,6 +6,9 @@ class Friend < ActiveRecord::Base
   has_many :groups_friends
   has_many :groups, :through => :groups_friends
 
+  has_many :friend_profiles, :dependent => :destroy
+  has_many :categories, :through => :friend_profiles
+
   validates :uid, :presence => true
   validates_associated :user
 
