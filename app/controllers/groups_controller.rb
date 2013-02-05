@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   # GET /groups/new.json
   def new
-    @group = current_user.groups.new
+    @group = current_user.groups.build
 
     respond_to :html
   end
