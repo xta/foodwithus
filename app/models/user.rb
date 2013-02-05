@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :friends
-  has_many :groups
+  has_many :friends, :dependent => :destroy
+  has_many :groups, :dependent => :destroy
 
   validates :uid, :presence => true
   validates :token, :presence => true

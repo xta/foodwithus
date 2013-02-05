@@ -3,9 +3,8 @@ class Group < ActiveRecord::Base
   attr_accessible :name
   
   belongs_to :user
-  has_many :friends
 
-  has_many :groups_friends
+  has_many :groups_friends, :dependent => :destroy
   has_many :friends, :through => :groups_friends
 
   validates :name, :presence => true
