@@ -26,7 +26,13 @@
         <% end %> 
       <% end %> 
       />
-      <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
+        <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
+        <% unless friend.categories.empty? %>
+          <% friend.categories.each do |category| %>
+            <em><%= category.short_name %></em>
+          <% end %>
+        <% end %>
+        <br/><br/>
     </div>
   <% end %>
 
