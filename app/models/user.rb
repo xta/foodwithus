@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   has_many :friends, :dependent => :destroy
   has_many :groups, :dependent => :destroy
 
+  has_many :user_profiles, :dependent => :destroy
+  has_many :categories, :through => :user_profiles
+
   validates :uid, :presence => true
   validates :token, :presence => true
   validates :email, :presence => true
