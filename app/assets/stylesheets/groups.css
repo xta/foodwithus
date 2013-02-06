@@ -23,8 +23,9 @@ ul#display_groups li {
   border-bottom: 1px #ccc solid;
 }
 
-ul#display_groups li .group_tag {
-  font-weight: bold;
+.group_cuisines {
+  font-style: italic;
+  color: #888;
 }
 
 /* 
@@ -32,6 +33,23 @@ ul#display_groups li .group_tag {
   Form style
 
 */
+
+.group_name {
+  padding: 0 0 20px 0;
+}
+
+.group_member {
+  padding-bottom: 10px;
+  border-top: 1px #ccc solid;
+}
+
+.group_member.picked {
+
+}
+
+.group_name label {
+  font-weight: bold;
+}
 
 .group_form input[type="checkbox"]
 {
@@ -43,5 +61,6 @@ ul#display_groups li .group_tag {
 }
 
 .group_form input[type=checkbox]:checked + label {
+  color: #fff;
   background-color: green;
 }

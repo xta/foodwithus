@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
     @group.set_members(params[:member])
 
     if @group.save
-      redirect_to @group
+      redirect_to root_path
     else
       render 'new'
     end
@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
     @group.set_members(params[:member])
 
     if @group.save
-      redirect_to @group
+      redirect_to root_path
     else
       render 'edit'
     end

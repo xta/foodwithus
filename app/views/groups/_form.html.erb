@@ -12,31 +12,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
+  <div class="field group_name">
+    <%= f.label :name, 'Group name' %>
     <%= f.text_field :name %>
   </div>
 
   <% current_user.friends.each do |friend| %>
-    <div class="group_member">
+    <% @group.friends.include?(friend) ? member_status=true : member_status=false %>
+
+    <div class="group_member <% if member_status %>picked<% end %>">
       <input type="checkbox" name="member[]" value="<%= friend.id %>" id="<%= friend.id %>" 
       <% unless @group.friends.empty? %>
-        <% if @group.friends.include?(friend) %>
-        checked
-        <% end %> 
+        <% if member_status %>checked<% end %> 
       <% end %> 
       />
         <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
         <% unless friend.categories.empty? %>
-          <% friend.categories.each do |category| %>
-            <em><%= category.short_name %></em>
-          <% end %>
+          <div class="group_cuisines">
+            <% friend.categories.each do |category| %>
+              <em><%= category.short_name %></em>
+            <% end %>
+          </div>
         <% end %>
-        <br/><br/>
     </div>
   <% end %>
-
-  <input type="hidden" />
 
   <div class="actions">
     <%= f.submit %>
