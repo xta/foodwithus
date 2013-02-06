@@ -1,3 +1,38 @@
+/* 
+
+  General style
+
+*/
+
+#group_wrap h1 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+ul#display_groups {
+  list-style-type: none;
+  padding: 0 0 0 20px;
+}
+
+ul#display_groups .group_name {
+  font-size: 140%;
+}
+
+ul#display_groups li {
+  padding: 5px 0;
+  border-bottom: 1px #ccc solid;
+}
+
+ul#display_groups li .group_tag {
+  font-weight: bold;
+}
+
+/* 
+
+  Form style
+
+*/
+
 .group_form input[type="checkbox"]
 {
     display:none;

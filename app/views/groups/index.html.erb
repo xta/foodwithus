@@ -1,25 +1,37 @@
+<div id="group_wrap">
 <% if @groups %>
 
-  <h1>Groups</h1>
-
-  <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-
+  <h1>Food Groups</h1>
+  <ul id="display_groups">
   <% @groups.each do |group| %>
-    <tr>
-      <td><%= link_to group.name, group %></td>
-      <td><%= link_to 'Edit', edit_group_path(group) %></td>
-      <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
+    
+    <li>
+      <%= link_to group.name, group, class: 'group_name' %>
 
-  </table>
-  <br />
+      <% unless group.members.empty? %>
+        <br/>
+        <% groups_members = [] %>
+        <% foods_categories = [] %>
+        <% group.members.each do |member| %>
+          <% if member.respond_to?(:photo_prefix) %>
+            <img src='<%= member.photo_prefix %>' width='25' height='25' />
+          <% end %>
+          <% groups_members << member.first_name %>
+          <% foods_categories.concat( member.categories.map { |category| category.short_name } ) %>
+        <% end %>
+
+        <br/>
+        <span class="group_tag">Members</span>: <%= groups_members.to_sentence %>
+        <br/>
+        <span class="group_tag">Likes</span>: <%= foods_categories.uniq.to_sentence %>
+      <% end %>
+    </li>
+
+  <% end %>
+  </ul>
 
 <% end %>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'Create a new group', new_group_path %>
+
+</div>
