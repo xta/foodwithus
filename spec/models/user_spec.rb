@@ -78,4 +78,21 @@ describe User do
 
   end
 
+  describe '.create_foursquare_profile' do
+    before(:each) do
+      VCR.use_cassette('build_foursquare_user_profile') do
+        @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
+        client = FoursquareWrapper.new( @user )
+        @foursquare_venuestats = client.venuestats( @user )
+      end
+    end
+
+    it 'sets profile of food types for user' do
+      @user.create_foursquare_profile(@foursquare_venuestats)
+
+      @user.categories.size.should == 9
+    end
+
+  end
+
 end
