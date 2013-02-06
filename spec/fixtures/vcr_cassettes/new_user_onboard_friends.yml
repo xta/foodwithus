@@ -33,10 +33,10 @@ http_interactions:
         YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
       !binary "RGF0ZQ==":
       - !binary |-
-        U2F0LCAwMiBGZWIgMjAxMyAyMzo1NjoyOSBHTVQ=
+        V2VkLCAwNiBGZWIgMjAxMyAwNDoxOTo0MSBHTVQ=
       !binary "RXhwaXJlcw==":
       - !binary |-
-        U2F0LCAyIEZlYiAyMDEzIDIzOjU2OjI5IEdNVA==
+        V2VkLCA2IEZlYiAyMDEzIDA0OjE5OjQxIEdNVA==
       !binary "UHJhZ21h":
       - !binary |-
         bm8tY2FjaGU=
@@ -48,13 +48,13 @@ http_interactions:
         bWF4LWFnZT04NjQwMDA=
       !binary "VHJhY2VyLVRpbWU=":
       - !binary |-
-        MTc=
+        MjI=
       !binary "WC1SYXRlbGltaXQtTGltaXQ=":
       - !binary |-
         NTAw
       !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
       - !binary |-
-        NDk4
+        NDkw
       !binary "Q29udGVudC1MZW5ndGg=":
       - !binary |-
         NDQ3
@@ -75,5 +75,290 @@ http_interactions:
         B1/cCdZyKX63Da8fiziPye04LgY7E9w8PLx7vN+qU35D8EWgi2xuGOruBIJq
         vwl68v+MX0L9/8f3BG/mG/FZS/wNvxAhlFPtP/idxnH8BdN3bHGFAwAA
     http_version: 
-  recorded_at: Sat, 02 Feb 2013 23:56:36 GMT
+  recorded_at: Wed, 06 Feb 2013 04:19:44 GMT
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/41619582/venuestats?oauth_token=<TEST_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAwNiBGZWIgMjAxMyAwNDoxOTo0MSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCA2IEZlYiAyMDEzIDA0OjE5OjQxIEdNVA==
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        NTQ=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDg5
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MTgzOQ==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Wed, 06 Feb 2013 04:19:44 GMT
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/46401850/venuestats?oauth_token=<TEST_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAwNiBGZWIgMjAxMyAwNDoxOTo0MSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCA2IEZlYiAyMDEzIDA0OjE5OjQxIEdNVA==
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        MTg=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDg4
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MjA1
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA02PsW7DMAxEf4XgbMRBR29BunQL0GxxBiViUgKOJFCUAsPQ
+        v5duOmQ8Hu7xbsEHqcNhwWv0hMPHdtshiUQ5zsk0ekpCV6fk8d/4tABPZh0m
+        cpkgSazsCVyA3eELKknmGEAjuBrZw61oEYI/aN58E8GPahrGfuwvrJtpHvs6
+        P/euYuswROUb2z9DZBxOC+qrx7txFDdbG1Z6rM1LEHJ+H0tQG9DauUOhnAxg
+        AxasFAqtLLuvQ+5R+KVb+wUj378B/wAAAA==
+    http_version: 
+  recorded_at: Wed, 06 Feb 2013 04:19:44 GMT
+- request:
+    method: get
+    uri: https://api.foursquare.com/v2/users/41773824/venuestats?oauth_token=<TEST_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby gem
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIHByaXZhdGUsIG5vLXN0b3Jl
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAwNiBGZWIgMjAxMyAwNDoxOTo0MSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        V2VkLCA2IEZlYiAyMDEzIDA0OjE5OjQxIEdNVA==
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjE=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT04NjQwMDA=
+      !binary "VHJhY2VyLVRpbWU=":
+      - !binary |-
+        NDY=
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NTAw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDg3
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MTgzNQ==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+VYbW/bNhD+K4Q+dCsQ26LeFaAYGnddF3RFsbQoirkoaImy
+        tciiRtH2giD/fQ9lKZFku3GctkCxL0HMO5G8l+e5410bC66YcXptRCLmxqll
+        micGl1LId1cFfhsxLySPmOKxUQte4IM0g+htxlnJSSHFKo05YTl5/vZ3suKy
+        TEVOlCBsJdKYJEu1lJxUm5bDC87JXKnidDKajKapGmZXk9Hqaj1mK+PmxMiF
+        SpMU52GL0jj969pQm3u0Be8ku8JtUsUX+ubLXHIWj8UyVzDg5ubTiSF5WWAD
+        GHBtrHi+5Ju9ppznr7jEMj0xmh9/8LJkM20rJeM5jy4HKY4+2XynN0hjyBzT
+        ixMemEnoOcy1TCdILMq5DcWcLfTXLzPcWsLy17gJ9juBS3PFIlzq2ijmItdK
+        FrV8y/d9h0KeCLlgCq59W0t/hvgpgcKg0oA/MrHxhd6DxTHsgiWG7ZMPhIZq
+        Ti7UUB8kRVleKMk5DjOmap0TF8InxFNziHEx49Qxh74dhj7++KZvYzWfGacD
+        3x6GoW1bjkup6fi2d2IUolQsG1f5YFDTpPquUaqusPcbviYfhbzECpSUNunN
+        Ry3W3pda432OuMS4GKTajVGkFy90cCOWixzBzd7LDIs6DcoqDxKxlOU/Syb5
+        MBIL5MNklNTeHGSVNyejLwRAp+dMyLSO8iZe08QN4jiInSAMgphSHjrUt13c
+        qI7XWESXOpPJGZNYLbKlZNmbTSzbMm1EORdS9WRYThHhLxqSLmaT0d31JqM8
+        nc1VliYcy/X55bBAJHABmJ8rnajGm0aLXBRCGUjoQqYLpv2r5JLrDAfMABSg
+        8jRhWck34cDHALLOYaRwDQjfC5DsyxKwrFdc30WUVVo0GhSxWd6GpIrIer0e
+        NiHYREBHBrfM0kvtZs0XFd5AFzMploW+9yfsswDatLiGbSJE/DyPzzjuq0HW
+        PujxsZ+MquNwqpimGT8grfZl0WQU81Ua8c/VhrCjYYe2qTc3NyfXLcnDSSSM
+        k6lHvYZETMujNGmTyFmaE+rATbu4w6ShZ4eOp0lnB3eY9CmBwqDSgAm7uYPa
+        1CEfWDlP85kCW+1iEGrfUsstd7hW6LtgCd8NTRP5U9OHM9RG2J7thSF1XatH
+        H6Zv2qY2Z0Mfr8RUXPIcC7fsca6lX5s9pmk+oA5IY7/D71BZlZmdpGHB213S
+        +JDmfBdhNOt9smjWYeSjyGKNc78tT1g08Ls8QS2KlTuesILdPAFnU+dAekAB
+        43LVlHfU7m3aEQVokE2zuhaUyFP8z8ri319kGj9zHGr6TyRPnqFembqsfA3K
+        uS9hjmCaPan3nZiGJRGLw+SWaVzLtaw204xR5SNBPsxFxkuWcTLOltMKi7ua
+        liD03MDfQzy6aYHCoNLYSzygDvIrodSvuEWf1Olaqm6S5Yo8X+kyccs7oQta
+        cezAC6nd6VpsMwTb4VLIAwj6XUtV6r931xJVTh2sG6cOIjgVNLQ/GofQEA3g
+        hE7v8psUEZdXIG+BbhbGt5uXjrBPSB0hvnw4K6EXKko0aKjsn1H69T22mekC
+        Sug/LwB2VFWc8xLqWHgh0/ySaOnjuprQ0Z1qu6uxHT9os5Wnu5r7upVvU+Wn
+        zjQw2S32HC/kltfG3rmY5z+V5AXPUrhmR6n3aWDjGeAEu58JED8lUBhUGnsR
+        Z5m2jRRJs2zNs0wDa/uxwBQJ8Eqo24AGdW7ohY7j+56D58pdscdbIXBtVEXT
+        hTiw+qijlqUpokbdmRTiMrvqVPtv8lb4G+4sBzG8Cajtd/4hUItgWBdqFyyP
+        12k0J28zVmVyB2tdaR9sjbR6CD0caRpik1FZX4DveChoVD0OSNTWPVsbSK4H
+        Nr2r+tRFfvXKdOVw7e8Dq/7XqNCHBPmIKr0nXb5TlXZtM55aYVOl0UhPu++B
+        qjwTHWadW3dMsRfz1CRjkS0X02VJxqmMMk2+3Ur7Wqy5JK/xJMuISIiac/Iu
+        XXA8CmQOwRjtF9cv4oYM8II0Peqboe151Lnt/DUZ0ECThA3xVuePwUGbDL7b
+        4KCqvQMNHRQpZ7+DD2GD/2Ph1QOG/dMEB8UMKdDmC+r6OitajBE6Oj3vGRTs
+        Kb2fkK3dcU41v6tHFaCqWopRSDOZ6016krBP4Ro+3d6j1zFtKfSJvK0AZDyc
+        yuumKeYJW2bq3n7pUzVpeKjlztaM6/kCY6IIk9k/OR7cGHBhRNqzfYdK3/pG
+        5SjLNRI1m+4xXHvW2DYXo5V7A039fqDPOPjrNybjasTQKdQtUd+8lugoC1sz
+        PSS1nFXnb4e4P9TbCvEhNv9oE4mjjPwhm7CjLMUksNduvhKKvBAzci7Sbax2
+        hP00roV6+eH8tEHpXKhYzLZT9zEg3eKk9my9T0ZtWd++RnaUfS2MPmDuflRM
+        Ke3H9JwVLMfg6wssvEOlb3+jcpT9B7IwiPg/r9luSxIcAAA=
+    http_version: 
+  recorded_at: Wed, 06 Feb 2013 04:19:44 GMT
 recorded_with: VCR 2.4.0

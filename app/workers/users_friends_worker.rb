@@ -6,6 +6,8 @@ class UsersFriendsWorker
     client  = FoursquareWrapper.new(user)
     friends = client.user_friends
     Friend.create_all_from_foursquare(user_id, friends)
+
+    UsersProfilesWorker.perform_async(user_id)
   end
 
 end

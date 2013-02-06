@@ -5,7 +5,7 @@ describe User do
     let(:auth) do
       OmniAuth::AuthHash.new({  
         :provider => 'foursquare',
-        :uid => '12345678',
+        :uid => ENV['FOURSQUARE_TEST_UID'],
         :info => {        :email => "foo@bar.com",
                           :first_name => "Foobaz",
                           :last_name => "Bazbar",
@@ -23,7 +23,7 @@ describe User do
       })
     end
 
-    let(:user) { User.find_by_uid('12345678') }
+    let(:user) { User.find_by_uid(ENV['FOURSQUARE_TEST_UID']) }
 
   describe ".from_omniauth" do
 

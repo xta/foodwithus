@@ -20,11 +20,15 @@ class User < ActiveRecord::Base
   end
 
   def create_foursquare_profile(venuestats)
-    venuestats.categories.each do |stats|
-      category_check = Category.find_by_fsq_id(stats.category.id)
-      if category_check
-        self.categories << category_check
+    begin
+      venuestats.categories.each do |stats|
+        category_check = Category.find_by_fsq_id(stats.category.id)
+        if category_check
+          self.categories << category_check
+        end
       end
+    rescue Exception => e
+      logger.debug e
     end
   end
 
