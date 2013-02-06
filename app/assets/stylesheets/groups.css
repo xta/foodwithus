@@ -26,6 +26,7 @@ ul#display_groups li {
 .group_cuisines {
   font-style: italic;
   color: #888;
+  padding: 0 10px;
 }
 
 /* 
@@ -58,9 +59,13 @@ ul#display_groups li {
 
 .group_form input[type=checkbox] + label {
   background-color: #eee;
+  display: block;
+  padding: 10px;
 }
 
 .group_form input[type=checkbox]:checked + label {
   color: #fff;
   background-color: green;
+  display: block;
+  padding: 10px;
 }

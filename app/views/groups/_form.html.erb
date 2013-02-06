@@ -29,8 +29,8 @@
         <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
         <% unless friend.categories.empty? %>
           <div class="group_cuisines">
-            <% friend.categories.each do |category| %>
-              <em><%= category.short_name %></em>
+            <% friend.categories.map do |category| %>
+              <%= category.short_name %>
             <% end %>
           </div>
         <% end %>
