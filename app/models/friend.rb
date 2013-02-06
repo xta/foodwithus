@@ -17,8 +17,10 @@ class Friend < ActiveRecord::Base
 
       foursquare_friends.each do |friend|
         begin
-          new_friend = build_foursquare_friend(user_id, friend)
-          new_friend.save
+          unless friend.type == "page"
+            new_friend = build_foursquare_friend(user_id, friend)
+            new_friend.save
+          end
         rescue Exception => e
           logger.debug e
         end
@@ -30,11 +32,15 @@ class Friend < ActiveRecord::Base
   end
 
   def create_foursquare_profile(venuestats)
-    venuestats.categories.each do |stats|
-      category_check = Category.find_by_fsq_id(stats.category.id)
-      if category_check
-        self.categories << category_check
+    begin
+      venuestats.categories.each do |stats|
+        category_check = Category.find_by_fsq_id(stats.category.id)
+        if category_check
+          self.categories << category_check
+        end
       end
+    rescue Exception => e
+      logger.debug e
     end
   end
 
