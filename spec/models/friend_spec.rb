@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Friend do
 
   before(:each) do
-    @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'])
+    @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: 41619582)
     @client = FoursquareWrapper.new(@user)
   end
 
@@ -35,6 +35,23 @@ describe Friend do
     end
 
   end
-  
+
+  describe '.create_foursquare_profile' do
+    before(:each) do
+      VCR.use_cassette('build_foursquare_friend_profile') do
+        @foursquare_api_friends = @client.user_friends
+        Friend.create_all_from_foursquare(@user.id, @foursquare_api_friends)
+        @profile_friend = @user.friends.last
+        @foursquare_venuestats = @client.venuestats( @profile_friend )
+      end
+    end
+
+    it 'builds a profile of food types for given foursquare friend' do
+      @profile_friend.create_foursquare_profile(@foursquare_venuestats)
+
+      @profile_friend.categories.size.should == 4
+    end
+
+  end
 
 end

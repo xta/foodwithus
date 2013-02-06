@@ -29,6 +29,15 @@ class Friend < ActiveRecord::Base
     end
   end
 
+  def create_foursquare_profile(venuestats)
+    venuestats.categories.each do |stats|
+      category_check = Category.find_by_fsq_id(stats.category.id)
+      if category_check
+        self.categories << category_check
+      end
+    end
+  end
+
   private
 
     def self.build_foursquare_friend(the_user_id, foursquare_api_friend)
