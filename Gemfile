@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'jquery-rails'
-gem 'unicorn' # Use unicorn as the app server
+gem 'unicorn' # server
 
 # database
 gem 'pg'
@@ -17,11 +17,10 @@ gem 'httparty'
 gem 'omniauth-foursquare'
 gem 'foursquare2'
 
-# Gems used only for assets and not required
-# in production environments by default.
+# deploy
+gem 'capistrano'
+
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 
   # debugger
@@ -34,7 +33,6 @@ group :assets do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'faker'
-
 end
 
 group :test do
@@ -43,6 +41,3 @@ group :test do
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
 end
-
-# deploy
-gem 'capistrano'
