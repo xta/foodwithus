@@ -51,4 +51,10 @@ describe Group do
 
   end
 
+  describe '.top_categories' do
+
+    #it should get top 3(?) most visited categories by group
+
+  end
+
 end
