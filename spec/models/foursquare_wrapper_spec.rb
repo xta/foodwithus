@@ -51,6 +51,20 @@ describe FoursquareWrapper do
 
   end
 
-  describe '.search_nearby_restaurants'
+  describe '.search_nearby_restaurants' do
+    # https://developer.foursquare.com/docs/venues/search
+
+    xit 'takes gps and food categories to return nearby restaurants' do
+    end
+
+  end
+
+  describe '.search_nearby_food' do
+    # https://developer.foursquare.com/docs/venues/explore
+
+    xit 'takes gps and returns default food nearby' do
+    end
+
+  end
 
 end
