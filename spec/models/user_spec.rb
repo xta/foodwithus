@@ -91,6 +91,7 @@ describe User do
       @user.create_foursquare_profile(@foursquare_venuestats)
 
       @user.categories.size.should == 9
+      @user.user_profiles.first.count.should == 4
     end
 
   end

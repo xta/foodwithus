@@ -50,6 +50,7 @@ describe Friend do
       @profile_friend.create_foursquare_profile(@foursquare_venuestats)
 
       @profile_friend.categories.size.should == 4
+      @profile_friend.friend_profiles.first.count.should == 2
     end
 
   end

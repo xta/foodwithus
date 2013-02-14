@@ -24,7 +24,11 @@ class User < ActiveRecord::Base
       venuestats.each do |stats|
         category_check = Category.find_by_fsq_id(stats.category.id)
         if category_check
-          self.categories << category_check
+          begin
+            user_profiles.create(:category_id => category_check.id, :count => stats.venueCount)
+          rescue Exception => e
+            logger.debug e
+          end
         end
       end
     rescue Exception => e
