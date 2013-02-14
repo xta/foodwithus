@@ -32,9 +32,9 @@ describe FoursquareWrapper do
 
     it 'returns venuestats for given person with uid attribute' do
       VCR.use_cassette('user_venuestats_self') do
-        venuestats = @client.venuestats(@user)
-        venuestats.venues.size.should == 5
-        venuestats.categories.size.should == 10
+        venuestats_categories = @client.venuestats(@user)
+        venuestats_categories.size.should == 10
+        venuestats_categories.first.venueCount.should == 4
       end
     end
 

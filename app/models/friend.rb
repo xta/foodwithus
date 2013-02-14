@@ -33,7 +33,7 @@ class Friend < ActiveRecord::Base
 
   def create_foursquare_profile(venuestats)
     begin
-      venuestats.categories.each do |stats|
+      venuestats.each do |stats|
         category_check = Category.find_by_fsq_id(stats.category.id)
         if category_check
           self.categories << category_check

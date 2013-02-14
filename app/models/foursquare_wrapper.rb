@@ -12,7 +12,7 @@ class FoursquareWrapper
   end
 
   def venuestats(foursquare_user)
-    @client.venuestats(foursquare_user.uid)
+    @client.venuestats(foursquare_user.uid).categories
   end
 
   def venue_categories
