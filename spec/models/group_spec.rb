@@ -53,7 +53,16 @@ describe Group do
 
   describe '.top_categories' do
 
+    # before(:each) do
+    #   # user profile
+    #   # friend profile
+    # end
+
     #it should get top 3(?) most visited categories by group
+
+    #it shouldnt return more than 3 results
+
+    #if no categories, then should be nil
 
   end
 
