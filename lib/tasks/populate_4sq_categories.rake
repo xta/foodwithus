@@ -5,8 +5,7 @@ task :populate_categories => [:environment] do
 
   # WebMock.allow_net_connect!
 
-  token = User.first.token
-  url = "https://api.foursquare.com/v2/venues/categories?oauth_token=#{token}&v=20130204"
+  url = "https://api.foursquare.com/v2/venues/categories?client_id=#{ENV['DEV_CLIENT_ID']}&client_secret=#{ENV['DEV_CLIENT_SECRET']}&v=20130204"
   response = HTTParty.get(url)
 
   response["response"]["categories"][2]["categories"].each do |category|

@@ -1,3 +1,6 @@
+DEV_CLIENT_ID: 'api_client_id_here'
+DEV_CLIENT_SECRET: 'api_client_secret_here'
+
 FOURSQUARE_TEST_TOKEN: 'token_goes_here'
 FOURSQUARE_TEST_UID: 'uid_for_token_user_above_here'
 
