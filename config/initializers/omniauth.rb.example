@@ -1,5 +1,15 @@
 OmniAuth.config.logger = Rails.logger
 
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :foursquare, 'client_id', 'client_secret'
+if Rails.env.production?
+
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :foursquare, 'client_id', 'client_secret'
+  end
+
+else #dev/test
+
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider :foursquare, 'client_id', 'client_secret'
+  end
+
 end
