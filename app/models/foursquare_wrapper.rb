@@ -19,4 +19,21 @@ class FoursquareWrapper
     @client.venue_categories
   end
 
+  def search_nearby_categories(ll, categories)
+    csv_categories = array_to_csv(categories)
+    response = @client.search_venues(:ll => ll, :intent => "browse", :radius => 4000, :categoryId => csv_categories)
+    response.groups.first.items
+  end
+
+  def search_nearby_food(ll)
+    response = @client.explore_venues(:ll => ll, :section => 'food')
+    response.groups.first.items
+  end
+
+  private
+
+    def array_to_csv(array)
+      array.join(',')
+    end
+
 end

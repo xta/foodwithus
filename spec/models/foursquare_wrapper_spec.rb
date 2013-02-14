@@ -51,10 +51,17 @@ describe FoursquareWrapper do
 
   end
 
-  describe '.search_nearby_restaurants' do
+  describe '.search_nearby_categories' do
     # https://developer.foursquare.com/docs/venues/search
 
-    xit 'takes gps and food categories to return nearby restaurants' do
+    it 'returns nearby restaurants from gps and categories' do
+      VCR.use_cassette('search_nearby_categories') do
+        categories = ['4bf58dd8d48988d1d2941735', '4bf58dd8d48988d151941735', '4bf58dd8d48988d149941735']
+        nearby_categories = @client.search_nearby_categories('40.7,-74', categories)
+
+        nearby_categories.first.name.should == "La Esquina"
+        nearby_categories.size.should == 30
+      end
     end
 
   end
@@ -62,7 +69,12 @@ describe FoursquareWrapper do
   describe '.search_nearby_food' do
     # https://developer.foursquare.com/docs/venues/explore
 
-    xit 'takes gps and returns default food nearby' do
+    it 'returns food nearby from gps' do
+      VCR.use_cassette('search_nearby_food') do
+        nearby_food = @client.search_nearby_food('40.7,-74')
+        nearby_food.first.venue.name.should == "Happy Days Diner"
+        nearby_food.size.should == 30
+      end
     end
 
   end
