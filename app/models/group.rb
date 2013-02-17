@@ -26,7 +26,34 @@ class Group < ActiveRecord::Base
     end
   end
 
+  def top_categories
+    profile_counter = {}
+    members.each do |member|
+      member.instance_of?(User) ? profiles = member.user_profiles : profiles = member.friend_profiles
+
+      unless profiles.empty?
+        profiles.each do |profile|
+          if profile_counter.has_key?(profile.category_id)
+            profile_counter[profile.category_id] += profile.count
+          else
+            profile_counter[profile.category_id] = profile.count
+          end
+        end
+      end
+    end
+
+    top_three(profile_counter)
+  end
+
   private
+
+    def top_three(profile_hash)
+      top_three_profiles = profile_hash.sort_by {|k,v| -v}[0...3]
+
+      top_three_profiles.map do |key, value|
+        Category.find(key)
+      end
+    end
 
     def clean_strings_for_ids(collection)
       collection.select! { |input_id| input_id.to_i != 0 }

@@ -59,14 +59,12 @@ describe Group do
     end
 
     it "should get top 3 most visited categories by group" do
-      @top_categories.first.should == "asdf"
+      @top_categories.first.short_name.should == "Falafel"
     end
 
     it "shouldnt return more than 3 results" do
       @top_categories.size.should == 3
     end
-
-    #if no categories, then should be nil
 
   end
 
