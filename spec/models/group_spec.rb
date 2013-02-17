@@ -59,7 +59,7 @@ describe Group do
     end
 
     it "should get top 3 most visited categories by group" do
-      @top_categories.first.short_name.should == "Falafel"
+      @top_categories.first.short_name.should == "Asian"
     end
 
     it "shouldnt return more than 3 results" do

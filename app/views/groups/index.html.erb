@@ -9,18 +9,14 @@
       <%= link_to group.name, edit_group_path(group), class: 'group_name' %>
 
       <% unless group.members.empty? %>
-        <% groups_members = [] %>
-        <% foods_categories = [] %>
         <br/>
         <% group.members.each do |member| %>
           <% if member.respond_to?(:photo_prefix) %>
             <img src='<%= member.photo_prefix %>' width='40' height='40' alt="<%= member.first_name %> <%= member.last_name %>" />
           <% end %>
-          <% groups_members << member.first_name %>
-          <% foods_categories.concat( member.categories.map { |category| category.short_name } ) %>
         <% end %>
         <br/>
-        <span class="group_cuisines"><%= foods_categories.uniq.to_sentence %></span>
+        <span class="group_cuisines"><%= display_top_categories(group) %></span>
       <% end %>
     </li>
 

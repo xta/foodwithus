@@ -33,10 +33,12 @@ class Group < ActiveRecord::Base
 
       unless profiles.empty?
         profiles.each do |profile|
-          if profile_counter.has_key?(profile.category_id)
-            profile_counter[profile.category_id] += profile.count
-          else
-            profile_counter[profile.category_id] = profile.count
+          unless profile.count.nil?
+            if profile_counter.has_key?(profile.category_id)
+              profile_counter[profile.category_id] += 1
+            else
+              profile_counter[profile.category_id] = 1
+            end
           end
         end
       end
