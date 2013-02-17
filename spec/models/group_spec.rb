@@ -53,14 +53,18 @@ describe Group do
 
   describe '.top_categories' do
 
-    # before(:each) do
-    #   # user profile
-    #   # friend profile
-    # end
+    before :each do
+      group           = FactoryGirl.create(:group)
+      @top_categories = group.top_categories
+    end
 
-    #it should get top 3(?) most visited categories by group
+    it "should get top 3 most visited categories by group" do
+      @top_categories.first.should == "asdf"
+    end
 
-    #it shouldnt return more than 3 results
+    it "shouldnt return more than 3 results" do
+      @top_categories.size.should == 3
+    end
 
     #if no categories, then should be nil
 
