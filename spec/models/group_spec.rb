@@ -58,12 +58,9 @@ describe Group do
       @top_categories = group.top_categories
     end
 
-    it "should get top 3 most visited categories by group" do
+    it "should get most visited categories for group" do
       @top_categories.first.short_name.should == "Asian"
-    end
-
-    it "shouldnt return more than 3 results" do
-      @top_categories.size.should == 3
+      @top_categories.size.should == 1
     end
 
   end
@@ -71,7 +68,7 @@ describe Group do
   describe '.nearby_food_choices' do
 
     it 'returns restaurant choices for group based on group profiles' do
-      VCR.use_cassette('nearby_food_choices_with_profile') do
+      VCR.use_cassette('nearby_food_choices_with_profile', :match_requests_on => [:method]) do
         group       = FactoryGirl.create(:default_group)
         nearby_food = group.nearby_food_choices(group,"40.7523921","-73.9227625")
 
