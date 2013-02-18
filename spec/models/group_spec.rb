@@ -80,7 +80,7 @@ describe Group do
     end
 
     it 'returns food choices nearby if no group profiles' do
-      VCR.use_cassette('nearby_food_choices_profileless') do
+      VCR.use_cassette('nearby_food_choices_profileless', :match_requests_on => [:method]) do
         empty_group = FactoryGirl.create(:empty_group)
         empty_food = empty_group.nearby_food_choices(empty_group,"40.7523921","-73.9227625")
 
