@@ -47,6 +47,24 @@ class Group < ActiveRecord::Base
     top_three(profile_counter)
   end
 
+  def nearby_food_choices(group, gps_lat, gps_lon)
+    client       = FoursquareWrapper.new(group.user)
+    category_ids = top_categories.map { |category| category.fsq_id }
+    gps_coord    = clean_gps_for_search( gps_lat, gps_lon )
+
+    if gps_coord
+
+      unless top_categories.empty?
+        client.search_nearby_categories(gps_coord, category_ids)
+      else
+        client.search_nearby_food(gps_coord)
+      end
+
+    else
+      return false
+    end
+  end
+
   private
 
     def top_three(profile_hash)
@@ -55,6 +73,25 @@ class Group < ActiveRecord::Base
       top_three_profiles.map do |key, value|
         Category.find(key)
       end
+    end
+
+    def clean_gps_for_search(lat, lon)
+      gps_lat = remove_spaces(lat)
+      gps_lon = remove_spaces(lon)
+
+      if valid_float?(gps_lat) && valid_float?(gps_lon)
+        "#{gps_lat},#{gps_lon}"
+      else
+        return false
+      end
+    end
+
+    def remove_spaces(string)
+      string.gsub(/\s+/, "")
+    end
+
+    def valid_float?(value)
+      !!Float(value) rescue false
     end
 
     def clean_strings_for_ids(collection)

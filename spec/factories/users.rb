@@ -14,7 +14,7 @@ FactoryGirl.define do
       first_name "Tom"
       last_name "Johnson"
       email "johnson@football.com"
-      token "foursquaretoken-foobar"
+      token ENV['FOURSQUARE_TEST_TOKEN']
 
       after(:create) do |user|
         diner   = FactoryGirl.create(:diner)
@@ -26,8 +26,14 @@ FactoryGirl.define do
           new_profile.category_id = category.id
           new_profile.save
         end
-
       end
+    end
+
+    factory :empty_user do
+      first_name "M T"
+      last_name "User"
+      email "mt@football.com"
+      token ENV['FOURSQUARE_TEST_TOKEN_BLANK_USER']
     end
 
   end

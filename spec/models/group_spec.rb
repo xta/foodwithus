@@ -54,7 +54,7 @@ describe Group do
   describe '.top_categories' do
 
     before :each do
-      group           = FactoryGirl.create(:group)
+      group           = FactoryGirl.create(:default_group)
       @top_categories = group.top_categories
     end
 
@@ -65,6 +65,29 @@ describe Group do
     it "shouldnt return more than 3 results" do
       @top_categories.size.should == 3
     end
+
+  end
+
+  describe '.nearby_food_choices' do
+
+    it 'returns restaurant choices for group based on group profiles' do
+      VCR.use_cassette('nearby_food_choices_with_profile') do
+        group       = FactoryGirl.create(:default_group)
+        nearby_food = group.nearby_food_choices(group,"40.7523921","-73.9227625")
+
+        nearby_food.first.name.should == "Tito Rad's"
+      end
+    end
+
+    it 'returns food choices nearby if no group profiles' do
+      VCR.use_cassette('nearby_food_choices_profileless') do
+        empty_group = FactoryGirl.create(:empty_group)
+        empty_food = empty_group.nearby_food_choices(empty_group,"40.7523921","-73.9227625")
+
+        empty_food.first.venue.name.should == "Savory Cafe"
+      end
+    end
+
 
   end
 

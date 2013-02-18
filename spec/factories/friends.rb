@@ -45,6 +45,14 @@ FactoryGirl.define do
       end
     end
 
+    factory :empty_friend_1 do
+      uid 4
+    end
+
+    factory :empty_friend_2 do
+      uid 5
+    end
+
   end
 
 end
