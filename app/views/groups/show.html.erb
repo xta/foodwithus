@@ -4,16 +4,11 @@
   <h3><%= @group.name %></h3>
 </p>
 
-<% unless @group.friends.empty? %>
-  <h4>Members</h4>
-
-  <% @group.friends.each do |friend| %>
-    <%= friend.first_name %> <%= friend.last_name %><br/>
-  <% end %>
-  
-  <br/>  
+<% @foursquare_results.each do |venue| %>
+  <div>
+    <%= venue.name %>
+  </div>
 <% end %>
-
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Delete Group', @group, method: :delete %>

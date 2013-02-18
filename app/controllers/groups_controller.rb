@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
+    @foursquare_results = @group.nearby_food_choices(@group, params[:lat], params[:lon])
   end
 
   # GET /groups/new

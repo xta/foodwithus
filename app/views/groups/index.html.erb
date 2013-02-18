@@ -10,7 +10,7 @@
 
       <% unless group.members.empty? %>
         <div id="search_nearby">
-          <%= link_to 'Find us food nearby', group, class: 'explore_nearby' %>
+          <%= link_to 'Find us food nearby', group_path(group), class: 'explore_nearby' %>
         </div>
         <% group.members.each do |member| %>
           <% if member.respond_to?(:photo_prefix) %>
