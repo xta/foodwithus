@@ -9,7 +9,9 @@
       <%= link_to group.name, edit_group_path(group), class: 'group_name' %>
 
       <% unless group.members.empty? %>
-        <br/>
+        <div id="search_nearby">
+          <%= link_to 'Find us food nearby', group, class: 'explore_nearby' %>
+        </div>
         <% group.members.each do |member| %>
           <% if member.respond_to?(:photo_prefix) %>
             <img src='<%= member.photo_prefix %>' width='40' height='40' alt="<%= member.first_name %> <%= member.last_name %>" />
