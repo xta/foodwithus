@@ -1,16 +1,16 @@
 $(document).ready(function() {
 
   $('a.explore_nearby').click(function() {
-    navigator.geolocation.getCurrentPosition( ModifyAddNewLink );
+    var target_path = $(this).attr("href");
+    navigator.geolocation.getCurrentPosition(function(position) {
+      redirect_with_geo(position.coords.latitude, position.coords.longitude, target_path);
+    });
+
     return false;
   });
 
-  function ModifyAddNewLink( location ) {
-    var latitude = location.coords.latitude;
-    var longitude = location.coords.longitude;
-    var addressValue = $('a.explore_nearby').attr("href");
-
-    window.location.href = addressValue + "?lat=" + latitude + "&lon=" + longitude;
+  function redirect_with_geo(lat, lon, target){
+    window.location.href = target + "?lat=" + lat + "&lon=" + lon;
   };
 
 }); // end DOM ready
