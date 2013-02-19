@@ -1,0 +1,23 @@
+<% @groups.each do |group| %>
+      
+  <li>
+    <%= link_to group.name, edit_group_path(group), class: 'group_name' %>
+
+    <% unless group.members.empty? %>
+      <div class="search_nearby">
+        <%= link_to 'Find us food nearby', group_path(group), class: 'explore_nearby btn primary' %>
+      </div>
+      <div class="clearfix"></div>
+      <% group.members.each do |member| %>
+        <% if member.respond_to?(:photo_prefix) %>
+          <%= link_to ( edit_group_path(group) ) do %>
+            <img src='<%= member.photo_prefix %>' width='40' height='40' title='<%= member.first_name %> <%= member.last_name %>' />
+          <% end %>
+        <% end %>
+      <% end %>
+      <br/>
+      <span class="group_cuisines"><%= display_top_categories(group) %></span>
+    <% end %>
+  </li>
+
+<% end %>

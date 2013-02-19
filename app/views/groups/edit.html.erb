@@ -2,4 +2,7 @@
 <h1>Group members</h1>
 
 <%= render 'form' %>
+
+<%= link_to 'Delete this group', @group, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 </div>

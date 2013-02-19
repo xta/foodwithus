@@ -11,29 +11,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field group_name">
+  <div class="field new_group_name">
     <%= f.label :name, 'Group name' %>
-    <%= f.text_field :name %>
+    <% if params[:action] == 'new' %>
+      <%= f.text_field :name, :value => prepopulated_group_name %>
+    <% else %>
+      <%= f.text_field :name %>
+    <% end %>
   </div>
 
   <% current_user.friends.each do |friend| %>
     <% @group.friends.include?(friend) ? member_status=true : member_status=false %>
+    <div class="group_member">
 
-    <div class="group_member <% if member_status %>picked<% end %>">
       <input type="checkbox" name="member[]" value="<%= friend.id %>" id="<%= friend.id %>" 
-      <% unless @group.friends.empty? %>
-        <% if member_status %>checked<% end %> 
-      <% end %> 
+      <% unless @group.friends.empty? %><% if member_status %>checked<% end %><% end %> 
       />
-        <label for="<%= friend.id %>"><%= friend.first_name %> <%= friend.last_name %></label>
+        
+      <label for="<%= friend.id %>">
+
+        <img src='<%= friend.photo_prefix %>' width='28' height='28' title='<%= friend.first_name %> <%= friend.last_name %>' />
+        
+        <div class="member_name"><%= friend.first_name %> <%= friend.last_name %></div>
+        <div class="clearfix"></div>
+
         <% unless friend.categories.empty? %>
-          <div class="group_cuisines">
+          <div class="member_categories">
+            Enjoys: 
             <% friend.categories.map do |category| %>
               <%= category.short_name %>
             <% end %>
           </div>
         <% end %>
+
+      </label>
+      <div class="clearfix"></div>
+
     </div>
   <% end %>
 

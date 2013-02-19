@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <% if current_user %>
-  <body>
+  <body class="groups-wrap">
 
   <div id="page-wrap">
 
@@ -26,11 +26,11 @@
 
 <% end %>
   <footer>
-    2013 <%= link_to 'Github source', 'http://github.com/xta/foodwithus' %>
+    2013 &middot; by <%= link_to '@rexfeng', 'http://twitter.com/rexfeng' %> &middot; <%= link_to 'Github source', 'http://github.com/xta/foodwithus' %>
   </footer>
 </div>
 
-<%= render 'layouts/dev_info' %>
+<%# render 'layouts/dev_info' %>
 <%= render 'layouts/analytics' %>
 </body>
 </html>

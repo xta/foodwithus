@@ -1,12 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <h2>group: <%= @group.name %></h3>
-</p>
+<h1>Suggestions for <%= @group.name %></h1>
 
 <% unless @foursquare_results.nil? %>
   <% @foursquare_results.each do |venue| %>
-    <div>
+    <div class="show_nearby_venue">
       <h3><%= venue.name %></h3>
       <%= venue.contact.formattedPhone %>
       <p>
