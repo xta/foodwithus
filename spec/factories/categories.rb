@@ -51,5 +51,14 @@ FactoryGirl.define do
       short_name 'Taco'
     end
 
+    factory :coffee do
+      fsq_id '4bf58dd8d48988d1e0931735'
+      name 'Coffee Shop'
+      plural_name 'Coffee Shops'
+      short_name 'Coffee Shop'
+    end
+
+
+
   end
 end

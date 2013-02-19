@@ -60,7 +60,7 @@ describe Group do
 
     it "should get most visited categories for group" do
       @top_categories.first.short_name.should == "Asian"
-      @top_categories.size.should == 1
+      @top_categories.size.should == 3
     end
 
   end

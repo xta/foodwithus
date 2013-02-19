@@ -44,7 +44,7 @@ class Group < ActiveRecord::Base
       end
     end
 
-    top_one(profile_counter)
+    top_three(profile_counter)
   end
 
   def nearby_food_choices(group, gps_lat, gps_lon)
@@ -67,12 +67,16 @@ class Group < ActiveRecord::Base
 
   private
 
-    def top_one(profile_hash)
-      top_one_profiles = profile_hash.sort_by {|k,v| -v}[0...1]
+    def top_three(profile_hash)
+      top_three_profiles = exclude_unwanted_categories(profile_hash).sort_by {|k,v| -v}[0...3]
 
-      top_one_profiles.map do |key, value|
+      top_three_profiles.map do |key, value|
         Category.find(key)
       end
+    end
+
+    def exclude_unwanted_categories(hash_to_clean)
+      hash_to_clean.reject { |k,v| Category.find(k).name == 'Coffee Shop' }
     end
 
     def clean_gps_for_search(lat, lon)
