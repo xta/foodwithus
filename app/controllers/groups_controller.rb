@@ -11,7 +11,12 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-    @foursquare_results = @group.nearby_food_choices(@group, params[:lat], params[:lon])
+
+    unless params[:lat].nil? || params[:lon].nil?
+      @foursquare_results = @group.nearby_food_choices(@group, params[:lat], params[:lon])
+    else
+      @foursquare_results = nil
+    end
   end
 
   # GET /groups/new

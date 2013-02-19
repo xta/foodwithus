@@ -4,15 +4,22 @@
   <h2>group: <%= @group.name %></h3>
 </p>
 
-<% @foursquare_results.each do |venue| %>
-  <div>
-    <h3><%= venue.name %></h3>
-    <%= venue.contact.formattedPhone %>
-    <p>
-    <%= venue.location.address %><br/>
-    <%= venue.location.city %>, <%= venue.location.state %> <%= venue.location.cc %> <%= venue.location.postalCode %>
-    </p>
-  </div>
+<% unless @foursquare_results.nil? %>
+  <% @foursquare_results.each do |venue| %>
+    <div>
+      <h3><%= venue.name %></h3>
+      <%= venue.contact.formattedPhone %>
+      <p>
+      <%= venue.location.address %><br/>
+      <%= venue.location.city %>, <%= venue.location.state %> <%= venue.location.cc %> <%= venue.location.postalCode %>
+      </p>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <p>Please enable GPS to find nearby restaurants.</p>
+
 <% end %>
 
 <%= link_to 'Back to all groups', groups_path %>
