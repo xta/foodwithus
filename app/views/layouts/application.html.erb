@@ -13,7 +13,7 @@
 
     <header class="clearfix">
       <%= link_to 'Food With Us', root_path, class: "logo" %> 
-      <nav><%= current_user.first_name %> <%= link_to "Logout", logout_path %></nav>
+      <nav><span id="user_name"><%= current_user.first_name %></span> <%= link_to "Logout", logout_path %></nav>
     </header>
 
     <div id="content-wrap">

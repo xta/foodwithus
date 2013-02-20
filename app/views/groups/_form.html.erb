@@ -12,9 +12,9 @@
     </div>
   <% end %>
   <div class="field new_group_name">
-    <%= f.label :name, 'Group name' %>
+    <%= f.label :name %>
     <% if params[:action] == 'new' %>
-      <%= f.text_field :name, :value => prepopulated_group_name %>
+      <%= f.text_field :name, :value => prepopulated_group_name, size: 40 %>
     <% else %>
       <%= f.text_field :name %>
     <% end %>
@@ -50,9 +50,7 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit :class => "btn primary" %>
 
 <% end %>
 </div>
