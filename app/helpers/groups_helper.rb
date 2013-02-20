@@ -1,8 +1,9 @@
 module GroupsHelper
 
   def prepopulated_group_name
-    description = ["Food", "Eat", "Party", "Band", "Troop", "Grub", "Snack", "Feast", "Nuggets"].sample
-    "#{description} #{Group.count}"
+    description = %w(Scrumptious Food Edible Spicy Tasty Flavorful Delicious Great Hungry).sample
+    grouping = %w(Eats Party Band Troop Feast Nuggets Outing Train Time Bites).sample
+    "#{description} #{grouping}"
   end
 
   def display_top_categories(group)
