@@ -2,11 +2,17 @@
 <% if @groups %>
 
   <h1>Groups</h1>
-  <%= link_to 'Create a group of friends', new_group_path, id: "new_group", class: "btn new" %>
+  <%= link_to 'Create new group of friends', new_group_path, id: "new_group", class: "btn new" %>
+  <div class="clearfix"></div>
 
   <ul id="display_groups">
   <% if @groups.empty? %>
-    <p>Please <%= link_to 'create a group of friends', new_group_path %> to find food with!</p>
+    <p class="empty notice">
+      <%= link_to 'Create groups of friends', new_group_path %> & find restaurants nearby based on each group's tastes.
+      <br/>
+      <br/>
+      <%= link_to 'Lets create a group of friends!', new_group_path %>
+    </p>
   <% else %>
     <%= render 'groups/display_group' %>
   <% end %>

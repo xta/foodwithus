@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field new_group_name">
     <%= f.label :name %>
     <% if params[:action] == 'new' %>
@@ -50,7 +51,7 @@
     </div>
   <% end %>
 
-  <%= f.submit :class => "btn primary" %>
+  <%= f.submit :class => "btn new" %>
 
 <% end %>
 </div>

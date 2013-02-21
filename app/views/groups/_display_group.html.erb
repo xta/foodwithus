@@ -5,7 +5,7 @@
 
     <% unless group.members.empty? %>
       <div class="search_nearby">
-        <%= link_to 'Find us food nearby', group_path(group), class: 'explore_nearby btn primary' %>
+        <%= link_to 'Find food', group_path(group), class: 'explore_nearby btn primary' %>
       </div>
       <div class="clearfix"></div>
       <% group.members.each do |member| %>
