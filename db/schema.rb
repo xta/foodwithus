@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214045132) do
+ActiveRecord::Schema.define(:version => 20130221201417) do
 
   create_table "categories", :force => true do |t|
     t.string   "fsq_id"
@@ -72,10 +72,13 @@ ActiveRecord::Schema.define(:version => 20130214045132) do
     t.string   "last_name"
     t.string   "email"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "provider"
     t.string   "location"
+    t.string   "relationship"
+    t.string   "photo_prefix"
+    t.string   "photo_suffix"
   end
 
 end

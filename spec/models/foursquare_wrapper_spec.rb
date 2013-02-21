@@ -10,6 +10,15 @@ describe FoursquareWrapper do
     @blank_client = FoursquareWrapper.new(blank_user)
   end
 
+  describe '.user_self' do
+    xit "returns the user's friends" do
+      VCR.use_cassette('users_self') do
+        user_self = @client.users_self
+        user_self.relationship.should == "self"
+      end
+    end    
+  end
+
   describe '.user_friends' do
 
     it "returns the user's friends" do
