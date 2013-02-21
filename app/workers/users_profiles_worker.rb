@@ -16,11 +16,9 @@ class UsersProfilesWorker
     user.create_foursquare_profile(user_stats)
 
     # for friends
-    unless friends.empty?
-      friends.each do |friend|
-        friend_stats = client.venuestats(friend)
-        friend.create_foursquare_profile(friend_stats)
-      end
+    friends.each do |friend|
+      friend_stats = client.venuestats(friend)
+      friend.create_foursquare_profile(friend_stats)
     end
     
   end
