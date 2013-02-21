@@ -8,8 +8,7 @@ FactoryGirl.define do
     first_name "MyString"
     last_name "MyString"
     relationship "MyString"
-    photo_prefix "MyString"
-    photo_suffix "MyString"
+    photo "MyString"
     email "MyString"
     homecity "MyString"
 

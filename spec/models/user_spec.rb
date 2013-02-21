@@ -78,6 +78,24 @@ describe User do
 
   end
 
+  describe '.create_self_profile' do
+    before(:each) do
+      VCR.use_cassette('create_self_profile') do
+        @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
+        client = FoursquareWrapper.new( @user )
+        @self_profile = client.user_self
+      end
+    end
+
+    it 'sets user attributes from 4sq response' do
+      @user.create_self_profile(@self_profile)
+
+      @user.relationship.should == "self"
+      @user.photo.should == "https://foursquare.com/img/blank_boy.png"
+    end
+
+  end
+
 # test needs to be refactored to not depend on the database Category seed
   # describe '.create_foursquare_profile' do
   #   before(:each) do

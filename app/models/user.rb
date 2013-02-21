@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
     new_user.tap { UsersFriendsWorker.perform_async(new_user.id) if new_user }
   end
 
+  def create_self_profile(foursquare_user_self)
+    self.photo        = foursquare_user_self.photo
+    self.relationship = foursquare_user_self.relationship
+    self.save
+  end
+
   def create_foursquare_profile(venuestats)
     begin
       venuestats.each do |stats|

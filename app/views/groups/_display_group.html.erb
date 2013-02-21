@@ -9,10 +9,8 @@
       </div>
       <div class="clearfix"></div>
       <% group.members.each do |member| %>
-        <% if member.respond_to?(:photo_prefix) %>
-          <%= link_to ( edit_group_path(group) ) do %>
-            <img src='<%= member.photo_prefix %>' width='40' height='40' title='<%= member.first_name %> <%= member.last_name %>' />
-          <% end %>
+        <%= link_to ( edit_group_path(group) ) do %>
+          <img src='<%= member.photo %>' width='40' height='40' title='<%= member.first_name %> <%= member.last_name %>' />
         <% end %>
       <% end %>
       <br/>

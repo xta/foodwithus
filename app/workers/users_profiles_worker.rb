@@ -8,6 +8,10 @@ class UsersProfilesWorker
     friends = user.friends
 
     # for user self
+    self_profile = client.user_self
+    user.create_self_profile(self_profile)
+
+    # for user profile categories
     user_stats = client.venuestats(user)
     user.create_foursquare_profile(user_stats)
 
