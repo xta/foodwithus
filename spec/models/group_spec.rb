@@ -73,6 +73,12 @@ describe Group do
         nearby_food = group.nearby_food_choices(group,"40.7523921","-73.9227625")
 
         nearby_food.first.name.should == "Tito Rad's"
+        nearby_food.first.contact.formattedPhone.should == "(718) 205-7299"
+        nearby_food.first.location.address.should == "49-12 Queens Blvd."
+        nearby_food.first.location.city.should == "New York"
+        nearby_food.first.location.state.should == "NY"
+        nearby_food.first.location.cc.should == "US"
+        nearby_food.first.location.postalCode.should == "11377"
       end
     end
 
