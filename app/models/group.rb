@@ -57,7 +57,7 @@ class Group < ActiveRecord::Base
       unless top_categories.empty?
         client.search_nearby_categories(gps_coord, category_ids)
       else
-        client.search_nearby_food(gps_coord)
+        convert_format_to_category_display( client.search_nearby_food(gps_coord) )
       end
 
     else
@@ -87,6 +87,25 @@ class Group < ActiveRecord::Base
         "#{gps_lat},#{gps_lon}"
       else
         return false
+      end
+    end
+
+    def convert_format_to_category_display(foursquare_response)
+      foursquare_response.map do |result|
+        begin
+          new_mashie            = Hashie::Mash.new
+          new_mashie[:name]     = result.venue.name
+          new_mashie[:contact]  = { :formattedPhone => result.venue.contact.formattedPhone }
+          new_mashie[:location] = { :address => result.venue.location.address,
+                                    :city => result.venue.location.city,
+                                    :state => result.venue.location.state,
+                                    :cc => result.venue.location.cc,
+                                    :postalCode => result.venue.location.postalCode 
+                                  }
+          new_mashie
+        rescue Exception => e
+          logger.debug e
+        end
       end
     end
 

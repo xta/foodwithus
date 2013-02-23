@@ -81,7 +81,13 @@ describe Group do
         empty_group = FactoryGirl.create(:empty_group)
         empty_food = empty_group.nearby_food_choices(empty_group,"40.7523921","-73.9227625")
 
-        empty_food.first.venue.name.should == "Savory Cafe"
+        empty_food.first.name.should == "Savory Cafe"
+        empty_food.first.contact.formattedPhone.should == "(718) 361-7800"
+        empty_food.first.location.address.should == "3602 36th Avenue"
+        empty_food.first.location.city.should == "Long Island City"
+        empty_food.first.location.state.should == "NY"
+        empty_food.first.location.cc.should == "US"
+        empty_food.first.location.postalCode.should == "11106"
       end
     end
 
