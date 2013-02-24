@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $('p#login').click(function() {
+    window.location.href = "/login";
+  });
+
   $('a.explore_nearby').click(function() {
     var target_path = $(this).attr("href");
     navigator.geolocation.getCurrentPosition(function(position) {
