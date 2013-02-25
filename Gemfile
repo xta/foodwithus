@@ -28,15 +28,16 @@ group :assets do
 
   # testing
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent', '~> 0.9.1'
-  gem 'faker'
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem "database_cleaner"
+  gem 'faker'
+  gem 'capybara'
   gem 'rspec-rails-mocha', :require => false
   gem 'webmock', '~> 1.8.0'
   gem 'vcr'
