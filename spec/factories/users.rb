@@ -3,7 +3,7 @@
 FactoryGirl.define do
 
   factory :user do
-    uid 1
+    sequence(:uid) { |number| number }
     first_name "John"
     last_name "Football"
     email "john@football.com"
