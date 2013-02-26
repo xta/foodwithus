@@ -2,96 +2,91 @@ require 'spec_helper'
 
 describe User do
 
-    let(:auth) do
-      OmniAuth::AuthHash.new({  
-        :provider => 'foursquare',
-        :uid => ENV['FOURSQUARE_TEST_UID'],
-        :info => {        :email => "foo@bar.com",
-                          :first_name => "Foobaz",
-                          :last_name => "Bazbar",
-                          :location => "New York"
-                  },
-        :credentials => {
-                          :token => ENV['FOURSQUARE_TEST_TOKEN']
-                  }
-      })
-    end
-
-    let(:bad_auth) do
-      OmniAuth::AuthHash.new({
-        :not_valid => 'no_valid_data_here'
-      })
-    end
-
-    let(:user) { User.find_by_uid(ENV['FOURSQUARE_TEST_UID']) }
+  before(:each) do
+    @auth       = OmniAuth.config.mock_auth[:foursquare]
+    @bad_auth   = OmniAuth.config.mock_auth[:foursquare_invalid]
+  end
 
   describe ".from_omniauth" do
 
-    it 'finds the user in the database if already exist' do
-      new_user = User.create_from_omniauth(auth)
+    context "for an already register user" do
+      it 'finds the user in the database if already exist' do
+        new_user = User.create_from_omniauth(@auth)
 
-      lambda do
-        user_from = User.from_omniauth(auth)
-        user_from.should eql(new_user)
-      end.should_not change(User, :count)
+        lambda do
+          user_from = User.from_omniauth(@auth)
+          user_from.should eql(new_user)
+        end.should_not change(User, :count)
+      end
     end
 
-    it 'triggers create_from_omniauth if user does not exist' do
-
-      lambda do
-        VCR.use_cassette('from_omniauth_should_create_new_user') do
-          User.from_omniauth(auth)
-        end
-      end.should change(User, :count).by(1)
-
+    context "for a new user" do
+      it 'creates an user' do
+        lambda do
+          VCR.use_cassette('from_omniauth_should_create_new_user') do
+            User.from_omniauth(@auth)
+          end
+        end.should change(User, :count).by(1)
+      end
     end
 
   end
 
   describe ".new_user_onboard" do
 
-    it "creates friends for the new_user" do
-      VCR.use_cassette('new_user_onboard_friends') do
-        new_user = User.new_user_onboard(auth)
-        new_user.friends.count.should == 2
+    context "with valid data" do 
+      it "creates friends for the new_user" do
+        VCR.use_cassette('new_user_onboard_friends') do
+          new_user = User.new_user_onboard(@auth)
+          new_user.friends.count.should == 2
+        end
       end
     end
 
-    it "does not create a user with invalid data given" do
-        new_user = User.new_user_onboard(bad_auth)
+    context "with invalid data" do
+      it "does not create a user" do
+        new_user = User.new_user_onboard(@bad_auth)
         new_user.should == false
+      end
     end
 
   end
 
   describe ".create_from_omniauth" do
 
-    it "creates a user from foursquare response" do
-      new_user = User.create_from_omniauth(auth)
-      user.should eql(new_user)
+    context "with a valid foursquare response" do
+      it "creates a user from foursquare response" do
+        new_user = User.create_from_omniauth(@auth)
+        expect(new_user.uid).to eq(ENV['FOURSQUARE_TEST_UID'].to_i)
+      end
     end
 
-    it 'should not create a user if invalid foursquare response' do
-      new_user = User.create_from_omniauth(bad_auth)
-      user.should_not eql(new_user)
+    context "with invalid foursquare response" do
+      it 'should not create a user' do
+        new_user = User.create_from_omniauth(@bad_auth)
+        @auth_user.should_not eql(new_user)
+      end
     end
 
   end
 
   describe '.create_self_profile' do
+
     before(:each) do
       VCR.use_cassette('create_self_profile') do
         @user = create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
         client = FoursquareWrapper.new( @user )
         @self_profile = client.user_self
       end
+      @user.create_self_profile(@self_profile)
     end
 
-    it 'sets user attributes from 4sq response' do
-      @user.create_self_profile(@self_profile)
+    it 'sets user relationship to self' do
+      expect(@user.relationship).to eq("self")
+    end
 
-      @user.relationship.should == "self"
-      @user.photo.should == "https://foursquare.com/img/blank_boy.png"
+    it 'sets user photo' do      
+      expect(@user.photo).to eq("https://foursquare.com/img/blank_boy.png")
     end
 
   end

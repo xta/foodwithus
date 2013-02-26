@@ -51,3 +51,21 @@ VCR.configure do |c|
   c.filter_sensitive_data("<TEST_TOKEN>") { ENV['FOURSQUARE_TEST_TOKEN'] }
   c.filter_sensitive_data("<TEST_TOKEN>") { ENV['FOURSQUARE_TEST_TOKEN_BLANK_USER'] }
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:foursquare] = OmniAuth::AuthHash.new({
+  :provider     => 'foursquare',
+  :uid          => ENV['FOURSQUARE_TEST_UID'],
+  :info         => {  :email      => "foo@bar.com",
+                      :first_name => "Foobaz",
+                      :last_name  => "Bazbar",
+                      :location   => "New York"
+                    },
+  :credentials  => {
+                      :token      => ENV['FOURSQUARE_TEST_TOKEN']
+                    }
+  })
+
+OmniAuth.config.mock_auth[:foursquare_invalid] = OmniAuth::AuthHash.new({
+  :not_valid => 'no_valid_data_here'
+})
