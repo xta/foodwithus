@@ -15,7 +15,7 @@ describe SessionsController do
   describe '.create' do
 
     before :each do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
     end
 
     it 'sets the user_id in session with valid user' do

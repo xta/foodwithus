@@ -81,7 +81,7 @@ describe User do
   describe '.create_self_profile' do
     before(:each) do
       VCR.use_cassette('create_self_profile') do
-        @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
+        @user = create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'], uid: ENV['FOURSQUARE_TEST_UID'])
         client = FoursquareWrapper.new( @user )
         @self_profile = client.user_self
       end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Friend do
 
   before(:each) do
-    @user = FactoryGirl.create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'])
+    @user = create(:user, token: ENV['FOURSQUARE_TEST_TOKEN'])
     @client = FoursquareWrapper.new(@user)
   end
 

@@ -36,7 +36,7 @@ describe Group do
     end
 
     it "sanitizes/ignores any invalid friend ids given" do
-      other_user = FactoryGirl.create(:user)
+      other_user = create(:user)
       invalid_friend = other_user.friends.create(:uid => 500)
       @friend_ids.concat( [invalid_friend.id.to_s, "as"] )
 
@@ -54,7 +54,7 @@ describe Group do
   describe '.top_categories' do
 
     before :each do
-      group           = FactoryGirl.create(:default_group)
+      group           = create(:default_group)
       @top_categories = group.top_categories
     end
 
@@ -69,7 +69,7 @@ describe Group do
 
     it 'returns restaurant choices for group based on group profiles' do
       VCR.use_cassette('nearby_food_choices_with_profile', :match_requests_on => [:method]) do
-        group       = FactoryGirl.create(:default_group)
+        group       = create(:default_group)
         nearby_food = group.nearby_food_choices(group,"40.7523921","-73.9227625")
 
         nearby_food.first.name.should == "Tito Rad's"
@@ -84,7 +84,7 @@ describe Group do
 
     it 'returns food choices nearby if no group profiles' do
       VCR.use_cassette('nearby_food_choices_profileless', :match_requests_on => [:method]) do
-        empty_group = FactoryGirl.create(:empty_group)
+        empty_group = create(:empty_group)
         empty_food = empty_group.nearby_food_choices(empty_group,"40.7523921","-73.9227625")
 
         empty_food.first.name.should == "Savory Cafe"
