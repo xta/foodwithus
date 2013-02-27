@@ -1,10 +1,13 @@
 FactoryGirl.define do
   factory :group do
 
+    name 'grub seekers'
+    user_id 1
+
     factory :default_group do
 
       name 'taco truck trio'
-      user_id 1
+      user_id 2
 
       after(:create) do |group|
         group.user     = FactoryGirl.create(:groups_user)
