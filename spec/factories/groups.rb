@@ -26,5 +26,9 @@ FactoryGirl.define do
       end
     end
 
+    factory :invalid_group do
+      name nil
+    end
+
   end
 end
