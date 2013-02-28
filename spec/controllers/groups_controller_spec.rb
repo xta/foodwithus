@@ -16,16 +16,22 @@ describe GroupsController do
 
   describe 'GET #show' do
 
-    it "assigns the requested group to @group" do
-      group = create(:group)
-      get :show, id: group
-      assigns(:group).should eq group
+    context 'for authorized user' do
+      it "assigns the requested group to @group" do
+        group = create(:group)
+        get :show, id: group
+        assigns(:group).should eq group
+      end
+
+      it "renders the :show template" do
+        group = create(:group)
+        get :show, id: group
+        response.should render_template :show
+      end
     end
 
-    it "renders the :show template" do
-      group = create(:group)
-      get :show, id: group
-      response.should render_template :show
+    context 'for unauthorized user' do
+      #it redirects to root
     end
 
   end
@@ -46,48 +52,60 @@ describe GroupsController do
 
   describe 'GET #edit' do
 
+    context 'for authorized user' do
+      it "assigns the requested group" do
+        group = create(:group)
+        get :edit, id: group
+        assigns(:group).should eq group
+      end
 
-    it "assigns the requested group" do
-      group = create(:group)
-      get :edit, id: group
-      assigns(:group).should eq group
+      it "renders the :edit template" do
+        group = create(:group)
+        get :edit, id: group
+        response.should render_template :edit
+      end
     end
 
-    it "renders the :edit template" do
-      group = create(:group)
-      get :edit, id: group
-      response.should render_template :edit
+    context 'for unauthorized user' do
+      #it redirects to root
     end
+
   end
 
   describe 'POST #create' do
 
-    context "with valid attributes" do
-      it "saves the new group in the database" do
-        expect{
+    context 'for authorized user' do
+      context "with valid attributes" do
+        it "saves the new group in the database" do
+          expect{
+            post :create, group: attributes_for(:group)
+          }.to change(Group, :count).by(1)
+        end
+
+        it "redirects to the home page" do
           post :create, group: attributes_for(:group)
-        }.to change(Group, :count).by(1)
+          response.should redirect_to root_url
+        end
       end
 
-      it "redirects to the home page" do
-        post :create, group: attributes_for(:group)
-        response.should redirect_to root_url
+      context "with invalid attributes" do
+        it "does not save the new group in the database" do
+          expect{
+            post :create,
+            group: attributes_for(:invalid_group)
+          }.to_not change(Group, :count)
+        end
+
+        it "re-renders the :new template" do
+          post :create,
+            group: attributes_for(:invalid_group)
+          response.should render_template :new
+        end
       end
     end
 
-    context "with invalid attributes" do
-      it "does not save the new group in the database" do
-        expect{
-          post :create,
-          group: attributes_for(:invalid_group)
-        }.to_not change(Group, :count)
-      end
-
-      it "re-renders the :new template" do
-        post :create,
-          group: attributes_for(:invalid_group)
-        response.should render_template :new
-      end
+    context 'for unauthorized user' do
+      #it redirects to root
     end
 
   end
@@ -98,36 +116,42 @@ describe GroupsController do
       @group = create(:group, name: "Fast Food")
     end
 
-    it "locates the requested @group" do
-      put :update, id: @group, group: attributes_for(:group)
-      assigns(:group).should eq(@group)
-    end
-
-    context "valid attributes" do
-      it "changes @group's attributes" do
-        put :update, id: @group,
-          group: attributes_for(:group, name: "Fine Dining")
-        @group.reload
-        @group.name.should eq("Fine Dining")
-      end
-
-      it "redirects to the updated group" do
+    context 'for authorized user' do
+      it "locates the requested @group" do
         put :update, id: @group, group: attributes_for(:group)
-        response.should redirect_to root_path
+        assigns(:group).should eq(@group)
+      end
+
+      context "valid attributes" do
+        it "changes @group's attributes" do
+          put :update, id: @group,
+            group: attributes_for(:group, name: "Fine Dining")
+          @group.reload
+          @group.name.should eq("Fine Dining")
+        end
+
+        it "redirects to the updated group" do
+          put :update, id: @group, group: attributes_for(:group)
+          response.should redirect_to root_path
+        end
+      end
+
+      context "invalid attributes" do
+        it "does not change @group's attributes" do
+          put :update, id: @group, :group => {name: nil}
+          @group.reload
+          @group.name.should_not eq(nil)
+        end
+
+        it "re-renders the edit method" do
+          put :update, id: @group, :group => {name: nil}
+          response.should render_template :edit
+        end
       end
     end
 
-    context "invalid attributes" do
-      it "does not change @group's attributes" do
-        put :update, id: @group, :group => {name: nil}
-        @group.reload
-        @group.name.should_not eq(nil)
-      end
-
-      it "re-renders the edit method" do
-        put :update, id: @group, :group => {name: nil}
-        response.should render_template :edit
-      end
+    context 'for unauthorized user' do
+      #it redirects to root
     end
 
   end
@@ -138,15 +162,21 @@ describe GroupsController do
       @group = create(:group)
     end
 
-    it "deletes the group" do
-      expect{
+    context 'for authorized user' do
+      it "deletes the group" do
+        expect{
+          delete :destroy, id: @group
+        }.to change(Group,:count).by(-1)
+      end
+
+      it "redirects to groups#index" do
         delete :destroy, id: @group
-      }.to change(Group,:count).by(-1)
+        response.should redirect_to groups_url
+      end
     end
 
-    it "redirects to groups#index" do
-      delete :destroy, id: @group
-      response.should redirect_to groups_url
+    context 'for unauthorized user' do
+      #it redirects to root
     end
 
   end
