@@ -3,8 +3,10 @@ require 'spec_helper'
 describe GroupsController do
 
   before(:each) do
-    user = create(:user)
-    session[:user_id] = user.id
+    @user = create(:user)
+    session[:user_id] = @user.id
+
+    @other_user = create(:user)
   end
 
   describe 'GET #index' do
@@ -31,7 +33,10 @@ describe GroupsController do
     end
 
     context 'for unauthorized user' do
-      #it redirects to root
+
+      # it "should not show group" do
+
+      # end
     end
 
   end
