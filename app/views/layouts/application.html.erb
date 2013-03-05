@@ -8,8 +8,9 @@
 </head>
 
 <% if public_page? %>
-
-  <%= yield %>
+<body class="groups-wrap">
+  <div id="page-wrap">
+    <%= yield %>
 
 <% elsif current_user %>
   <body class="groups-wrap">
