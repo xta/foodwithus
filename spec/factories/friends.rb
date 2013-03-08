@@ -22,7 +22,7 @@ FactoryGirl.define do
         [asian, chinese].each do |category|
           new_profile = friend.friend_profiles.new
           new_profile.count = 5
-          new_profile.category_id = category.id
+          new_profile.category = category
           new_profile.save
         end
       end
@@ -38,7 +38,7 @@ FactoryGirl.define do
         [cupcake, pizza].each do |category|
           new_profile = friend.friend_profiles.new
           new_profile.count = 2
-          new_profile.category_id = category.id
+          new_profile.category = category
           new_profile.save
         end
       end
